@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elizabeth & Wilbert · April 18, 2026</title>
+
+  <!-- Fuentes elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+  :root {
+    --bg-paper: #F7F4EF;
+    --text-main: #3A2E29;
+    --accent-terracotta: #9E4624;
+    --accent-olive: #9CAF88;
+    --card-bg: #FFFFFFEE;
+    --radius-lg: 1.5rem;
+    --radius-full: 999px;
+    --font-title: 'Poppins', 'Century Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-body: 'Poppins', 'Century Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --shadow-card: 0 24px 48px rgba(0,0,0,.07);
+    --border-card: 1px solid #0000000d;
+  }
+/* ✨ Nombres de los padres con la misma letra cursiva que los novios */
+.parents-block .info-row {
+  font-family: 'Great Vibes', cursive; /* misma fuente que los nombres */
+  font-size: 1.6rem;                   /* más pequeño que los novios */
+  line-height: 1.3;
+  color: var(--text-main);
+}
+
+.parents-block .amp {
+  font-size: 1.2rem;                   /* ampersand (&) un poco más pequeño */
+  color: var(--accent-terracotta);
+}
+
+.parents-block .subsection-title {
+  font-family: 'Poppins', 'Century Gothic', sans-serif; /* para mantener contraste */
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent-terracotta);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin-top: 1rem;
+}
+  /* ANIMACIÓN NOMBRES */
+  @keyframes fadeUp {
+    0% {opacity: 0; transform: translateY(20px);}
+    100% {opacity: 1; transform: translateY(0);}
+  }
+
+  .hero-intro, .hero-names {
+    animation: fadeUp 1.5s ease-out both;
+  }
+  .hero-names { animation-delay: 0.5s; }
+
+  /* RESET */
+  * { box-sizing: border-box; margin: 0; -webkit-font-smoothing: antialiased; }
+
+  body {
+    background-color: var(--bg-paper);
+    color: var(--text-main);
+    font-family: 'Poppins', 'Century Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+  }
+
+  a { color: var(--accent-terracotta); text-decoration:none; }
+
+  .section {
+    max-width: 900px; margin: 3rem auto; padding: 0 1.25rem; position: relative;
+  }
+
+  .card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.25rem;
+    box-shadow: var(--shadow-card);
+    border: var(--border-card);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp .8s cubic-bezier(.16,.84,.44,1) forwards;
+  }
+
+  .card.delay-1 {animation-delay:.1s;}
+  .card.delay-2 {animation-delay:.2s;}
+  .card.delay-3 {animation-delay:.3s;}
+  .card.delay-4 {animation-delay:.4s;}
+
+  .section-title {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text-main);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .subsection-title {
+    font-family: 'Poppins', 'Century Gothic', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-terracotta);
+    text-align: center;
+    margin-bottom: .5rem;
+  }
+
+  .text-center {text-align:center;}
+  .info-row {font-size:.95rem;margin-bottom:.5rem;text-align:center;}
+  .label {font-weight:600;color:var(--accent-terracotta);}
+  .note {font-size:.9rem;color:#6b5a52;text-align:center;line-height:1.5;}
+
+  .btn-pill {
+    display:inline-block;
+    background-color:var(--accent-terracotta);
+    color:#fff;
+    font-size:.9rem;
+    font-weight:500;
+    padding:.9rem 1.4rem;
+    border-radius:var(--radius-full);
+    min-width:200px;
+    text-align:center;
+    box-shadow:0 16px 32px rgba(158,70,36,.3);
+  }
+  .btn-dark {
+    background-color:var(--text-main);
+    box-shadow:0 16px 32px rgba(0,0,0,.2);
+  }
+  .btn-group {
+    display:flex;flex-direction:column;align-items:center;gap:.75rem;margin-top:1rem;
+  }
+  @media(min-width:480px){.btn-group{flex-direction:row;flex-wrap:wrap;justify-content:center;}}
+
+  .grid-2{display:grid;gap:1rem;}
+  @media(min-width:700px){.grid-2{grid-template-columns:1fr 1fr;}}
+
+  /* HERO */
+ .hero-wrap {
+  min-height: 100vh;
+  padding: 3rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: linear-gradient(
+      rgba(247, 244, 239, 0.75),
+      rgba(247, 244, 239, 0.75)
+    ),
+    url('eli&wilbert_savethedate57.jpg'); /* aquí pones el nombre de tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+  .hero-wrap::before,
+  .hero-wrap::after {
+    content: ""; position: absolute; border-radius: 50%; filter: blur(60px); opacity: .2;
+  }
+  .hero-wrap::before {
+    width:320px;height:320px;top:-60px;left:-60px;
+    background: radial-gradient(circle at 30% 30%, rgba(158,70,36,.35) 0%, rgba(247,244,239,0) 70%);
+  }
+  .hero-wrap::after {
+    width:360px;height:360px;bottom:-80px;right:-80px;
+    background: radial-gradient(circle at 30% 30%, rgba(156,175,136,.35) 0%, rgba(247,244,239,0) 70%);
+  }
+
+  .hero-photo {
+    width:160px;height:200px;
+    border-radius:var(--radius-lg);
+    background-size:cover;background-position:center;
+    box-shadow:0 24px 48px rgba(0,0,0,.15);
+    border:2px solid #ffffffaa;
+    margin-bottom:1.5rem;
+  }
+
+  .hero-intro {
+    font-family: var(--font-body);
+    font-size: .8rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent-terracotta);
+    margin-bottom: .75rem;
+  }
+
+  .hero-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.5rem,7vw,4.5rem);
+    font-weight: 400;
+    color: var(--text-main);
+    letter-spacing: .02em;
+    line-height: 1.1;
+    animation: fadeUp 1.5s ease-out both;
+    animation-delay: 0.5s;
+}
+
+
+  .amp {color:var(--accent-terracotta);}
+  .hero-dateplace {
+    margin-top:.75rem;
+    font-size:.9rem;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+  }
+  .hero-cta {margin-top:2rem;}
+
+  .countdown-box{text-align:center;font-weight:500;color:var(--text-main);}
+  .count-label{font-size:.8rem;text-transform:uppercase;color:var(--accent-olive);}
+  .count-value{font-size:1.1rem;font-weight:500;}
+
+  .parents-intro{font-family:var(--font-title);font-size:1.2rem;color:var(--accent-terracotta);margin-bottom:.75rem;font-weight:500;}
+  .parents-block{text-align:center;font-size:.95rem;line-height:1.6;}
+
+  .dresscode-card{
+    background-color:rgba(156,175,136,.12);
+    color:var(--text-main);
+    border-radius:var(--radius-lg);
+    padding:1.5rem 1.25rem;
+    box-shadow:var(--shadow-card);
+    border:1px solid rgba(156,175,136,.2);
+    text-align:center;
+  }
+  .dress-title{font-family:var(--font-title);font-size:1.4rem;color:var(--accent-olive);font-weight:500;margin-bottom:.75rem;}
+  .dress-text{font-size:.95rem;line-height:1.5;color:var(--text-main);}
+      footer {
+      text-align: center;
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accent-terracotta);
+      padding: 4rem 1rem 2.5rem;
+      line-height: 1.6;
+      letter-spacing: 0.05em;
+}
+
+  
+  .photo-separator {
+  width: 100%;
+  height: 60vh; /* alto: mitad de pantalla */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 3rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* 💫 BIENVENIDA INICIAL */
+#welcome-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(247, 244, 239, 0.96); /* tono papel artesanal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2000;
+  transition: opacity 1s ease;
+}
+
+.welcome-box {
+  text-align: center;
+  background: #fffefc;
+  padding: 2rem 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+  max-width: 320px;
+  animation: fadeUp 1s ease both;
+}
+
+.welcome-box h2 {
+  font-family: 'Allura', cursive;
+  font-size: 2.2rem;
+  color: var(--text-main);
+  margin-bottom: .5rem;
+}
+
+.welcome-box p {
+  font-family: 'Century Gothic', sans-serif;
+  color: var(--text-main);
+  font-size: .95rem;
+  margin-bottom: 1.5rem;
+}
+
+#welcome-overlay button {
+  background-color: var(--accent-terracotta);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: .8rem 1.8rem;
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color .3s, transform .2s;
+}
+
+#welcome-overlay button:hover {
+  background-color: var(--accent-olive);
+  transform: scale(0.97);
+}
+
+/* 💍 GALERÍA EN DOS COLUMNAS */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* dos columnas fijas */
+  gap: 1.2rem; /* espacio entre fotos */
+  justify-items: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+}
+
+/* efecto hover elegante */
+.photo-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+}
+
+/* 📱 vista móvil: solo una columna */
+@media (max-width: 600px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* 🌿 FOTOS DE LUGARES */
+.place-photo {
+  width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  object-fit: cover;
+  height: 180px;
+}
+
+@media (min-width: 700px) {
+  .place-photo {
+    height: 200px;
+  }
+}
+    /* 🌿 FOTO DEL DRESSCODE */
+.dress-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 1rem;
+  margin: 1rem auto;
+  display: block;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+    /* el estilo para la validación */
+#validacion {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.9s cubic-bezier(.16,.84,.44,1);
+}
+#validacion.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+#validacion-card {
+  background-color: rgba(156, 175, 136, 0.1);
+  border: 1px solid rgba(156, 175, 136, 0.3);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+  </style>
+
+</head>
+
+<body>
+  <div id="welcome-overlay">
+  <div class="welcome-box">
+    <h2 id="welcome-title">Welcome!</h2>
+    <p id="welcome-text">Thank you for joining us on this very special day 💍</p>
+    <button id="enter-btn">Enter</button>
+  </div>
+</div>
+
+  <header class="hero-wrap" id="inicio">
+    <!--<div class="hero-photo has-image" style="background-image:url('eli&wilbert_savethedate57.jpg');"></div> -->
+    <div class="hero-intro">Because love deserves to be celebrated. Join us!</div>
+   <h1 class="hero-names">
+      Elizabeth Muñoz Bravo<br/>
+    <span class="amp">&amp;</span><br/>
+      Wilbert Ismael Quintal Borromeo
+   </h1>
+
+    <div class="hero-dateplace">April 18 · 2026 · Mérida, Yucatán </div>
+    <!-- <div class="hero-cta"> -->
+    <!-- <(a class="btn-pill" href="#detalles">Ver detalles</a></div> -->
+  </header>
+
+  <section class="section" id="familia">
+    <div class="card">
+      <div class="parents-block">
+        <div class="parents-intro">With the blessing of our parents</div>
+        <div class="subsection-title" style="margin-top:1rem;">Bride’s Parents</div>
+         <div class="info-row">
+          Elizabeth Bravo Soriano <br/>
+          <span class="amp">&amp;</span><br/> 
+          Luis Muñoz Gómez</div>
+          <div class="subsection-title" style="margin-top:1rem;">Groom’s Parents</div>
+        <div class="info-row">
+          Marcela Borromeo Estrada<br/>
+          <span class="amp">&amp;</span><br/>
+          Wilbert Ismael Quintal Correa</div>
+      </div>
+    </div>
+  </section>
+<section class="photo-separator" style="background-image:url('eli&wilbert_savethedate6.jpg');">
+</section>
+  <section class="section" id="historia">
+    <div class="card delay-1">
+      <h2 class="section-title">Our Story</h2>
+      <p class="note" style="max-width:650px;margin:0 auto;">
+      Between laughter, classes, and late-night assignments, their paths crossed for the first time in the auditorium of the Faculty of Engineering.<br/>
+        He noticed her in the crowd—never imagining that a simple moment would become the beginning of something the years would turn into destiny.<br/>
+        Their first conversation was effortless and spontaneous—at an Oxxo, surrounded by friends. A few words were enough to discover how natural it was to talk, how easy it was to connect.<br/>
+        From then on, life kept bringing them together through long study nights, teamwork, and endless university days. They were classmates, partners-in-crime, and each other’s steady support—sharing effort, laughter, and even the quiet moments in between.<br/>
+        In time, each one followed a different path. She began a new chapter far from home, while he stayed to finish his goals. It felt like a pause—but it was really the start of a new story: two friends who, even at a distance, realized that loving each other was inevitable.<br/><br/>
+
+        Their reunion came the way true things do—without hurry, but with certainty.<br/>
+        And from that moment on, there were no more goodbyes—only new beginnings, journeys, and the promise to keep building life together—this time, forever. 🤍<br/>
+        Today, we want to celebrate our story with the people who matter most: you. 🩷
+      </p>
+    </div>
+  </section>
+  
+<section class="section" id="galeria">
+  <div class="card">
+    <h2 class="section-title">From friends… to forever</h2>
+    <div class="photo-grid">
+      <img src="Foto 1.jpg" alt="Elizabeth y Wilbert - amigos">
+      <img src="Foto 2.jpg" alt="Elizabeth y Wilbert - amigos">
+      <img src="Foto 3.jpg" alt="Elizabeth y Wilbert - amigos">
+      <img src="Foto 4.jpg" alt="Elizabeth y Wilbert - amigos">
+      <img src="Foto 5.jpg" alt="Primer viaje juntos - Guanajuato">
+      <img src="Foto 6.jpg" alt="Recuerdo muy especial">
+      <img src="Foto 7.jpg" alt="Primer aniversario">
+      <img src="Foto 8.jpg" alt="Hoy y siempre">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card" style="padding:0;">
+    <img src="eli&wilbert_savethedate9.jpg" alt="Elizabeth y Wilbert - Save the Date" style="width:100%; border-radius:1.5rem;">
+  </div>
+</section>
+
+  <section class="section" id="contador">
+    <div class="card delay-2">
+      <h2 class="section-title">Only a few days left until our big day 💍</h2>
+      <div class="countdown-box">
+        <div class="count-label">Countdown</div>
+        <div class="count-value" id="countdown">Loading countdown...</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="detalles del evento">
+    <div class="grid-2">
+      <div class="card delay-1">
+        <div class="subsection-title">Religious Ceremony</div>
+        <img src="parroquia.jpg" alt="Parroquia Santa María de Guadalupe" class="place-photo">
+        <div class="info-row"><span class="label">Lugar:</span><br/>Parroquia Santa María de Guadalupe</div>
+        <div class="info-row"><span class="label">Horario:</span><br/>8:00 p.m.</div>
+        <div class="info-row"><span class="label">Mapa:</span><br/><a href="https://maps.app.goo.gl/qfkGmwTWpUa3tBHR6" target="_blank">View on Google Maps</a></div>
+      </div>
+
+      <div class="card delay-2">
+        <div class="subsection-title">Reception</div>
+        <img src="flor_de_maria.jpg" alt="Casa Flor de María" class="place-photo"> 
+        <div class="info-row"><span class="label">Lugar:</span><br/>Casa Flor de María</div>
+        <div class="info-row"><span class="label">Horario:</span><br/>9:30 p.m.</div>
+        <div class="info-row"><span class="label">Mapa:</span><br/><a href="https://maps.app.goo.gl/7gxKjTNx6DKzv7Hi7" target="_blank">View on Google Maps</a></div>
+      </div>
+    </div>
+
+    <div class="card delay-3">
+      <h2 class="section-title">Evening Program</h2>
+      <ul class="program-list">
+        <li>8:00 p.m. · Ceremony</li>
+        <li>9:30 p.m. · Reception & Welcome</li>
+        <li>Toast &amp; photos</li>
+        <li>Dinner</li>
+        <li>Dancing ✨</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="dresscode">
+    <div class="dresscode-card">
+      <div class="dress-title">Código de vestimenta</div>
+      <img src="dresscode.jpg" alt="Dresscode" class="dress-img">
+      <!-- <div class="dress-text">Formal elegante.<br/>Vestido largo o traje de vestir.<br/>
+      Por favor evita mezclilla / jeans.</div> -->
+    </div>
+  </section>
+
+ <section class="section" id="regalos">
+  <div class="card delay-1">
+    <h2 class="section-title">Gift Registry</h2>
+    <p class="note" style="max-width:650px;margin:0 auto;">
+      Your presence is our greatest gift 🤍<br/>
+       If you would like to honor us with a gift, you may do so through our registry.
+    </p>
+
+    <div class="btn-group" style="margin-top:1.5rem;">
+      <a class="btn-pill" 
+         href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51806936"
+         target="_blank">
+        View Liverpool Gift Registry
+      </a>
+    </div>
+
+    <p class="note" style="margin-top:1rem;">
+      You may also contribute in cash ✉️<br/>
+      With love—thank you for celebrating with us.
+    </p>
+  </div>
+</section>
+
+  <section class="section" id="notas">
+    <div class="card delay-3">
+      <h2 class="section-title">Important Notes</h2>
+      <p class="note">  We absolutely adore your little ones, however, this celebration is adults-only. ✨<br/>
+        Thank you for your understanding and love.
+         </p>
+    </div>
+  </section>
+  
+    <!-- Invitación personal justo después de Notas -->
+<section class="section" id="validacion" style="display:none;">
+  <div class="card delay-4" id="validacion-card">
+    <h2 class="section-title">Personal Invitation</h2>
+    <p class="note" id="mensaje-validacion"></p>
+  </div>
+</section>
+ <section class="section" id="rsvp">
+    <div class="card delay-2">
+      <h2 class="section-title">RSVP</h2>
+      <p class="info-row">
+        Help us plan everything in advance ✨<br/>Please confirm your attendance.
+      </p>
+      <div class="btn-group">
+       <a id="whatsapp-link"
+   class="btn-pill"
+   href="https://wa.me/529991264032?text=Hello!%20I%20confirm%20my%20attendance%20at%20the%20wedding%20of%20Elizabeth%20and%20Wilbert%20💍"
+   target="_blank">
+  Confirm via WhatsApp
+        </a>
+        <!--<a class="btn-pill btn-dark" href="https://forms.gle/TU-FORM-AQUI" target="_blank">Llenar formulario</a> -->
+      </div>
+    </div>
+  </section>
+  <footer>
+    <strong>With all our love,<br/>we can’t wait to celebrate with you 💛</strong>
+  </footer>
+
+  <script>
+    // CONTADOR
+    (function(){
+      const countdownEl=document.getElementById('countdown');
+      const weddingDate=new Date(2026,3,18,20,0,0);
+      function updateCountdown(){
+        const now=new Date(),diff=weddingDate-now;
+        if(diff<=0){countdownEl.textContent="It's today! 💍";return;}
+        const d=Math.floor(diff/86400000),
+              h=Math.floor(diff/3600000)%24,
+              m=Math.floor(diff/60000)%60;
+        countdownEl.textContent=`${d} días · ${h} hrs · ${m} min`;
+      }
+      updateCountdown();setInterval(updateCountdown,60000);
+    })();
+  </script>
+
+  <!-- BOTÓN MUSICAL -->
+  <audio id="bg-music" src="musica.mp3" loop></audio>
+  <button id="musicBtn" style="position:fixed;bottom:20px;right:20px;width:60px;height:60px;
+    background-color:#9E4624;border:none;border-radius:50%;cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,.25);z-index:999;display:flex;
+    align-items:center;justify-content:center;transition:background-color .3s,transform .2s;">
+    <svg width="0" height="0">
+      <defs>
+        <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#F9E79F"/>
+          <stop offset="50%" stop-color="#E0C873"/>
+          <stop offset="100%" stop-color="#B8860B"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <svg id="icon-music" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="url(#gold-gradient)" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
+   <!-- ÍCONO NOTA MUSICAL TACHADA (OFF) -->
+<svg id="icon-mute" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="url(#gold-gradient)" viewBox="0 0 24 24" style="display:none;">
+  <!-- misma nota musical -->
+  <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+  <!-- línea diagonal dorada -->
+  <line x1="3" y1="21" x2="21" y2="3" stroke="url(#gold-gradient)" stroke-width="2"/>
+  </svg>
+  </button>
+
+  <style>
+    #musicBtn::after{content:"";position:absolute;border-radius:50%;width:100%;height:100%;top:0;left:0;
+      box-shadow:0 0 0 0 rgba(158,70,36,0.4);opacity:0;transition:box-shadow .6s ease-out,opacity .6s ease-out;z-index:-1;}
+    #musicBtn.playing::after{box-shadow:0 0 0 12px rgba(158,70,36,0);opacity:1;}
+  </style>
+
+<script>
+  const musicBtn = document.getElementById('musicBtn');
+  const audio = document.getElementById('bg-music');
+  const iconMusic = document.getElementById('icon-music');
+  const iconMute = document.getElementById('icon-mute');
+  let isPlaying = false;
+
+  // 🎵 Función para reproducir
+  function playMusic() {
+    audio.play();
+    musicBtn.style.backgroundColor = "#9CAF88"; // verde olivo
+    iconMusic.style.display = "none";
+    iconMute.style.display = "block";
+    isPlaying = true;
+  }
+
+  // 🔇 Función para pausar
+  function pauseMusic() {
+    audio.pause();
+    musicBtn.style.backgroundColor = "#9E4624"; // terracota
+    iconMusic.style.display = "block";
+    iconMute.style.display = "none";
+    isPlaying = false;
+  }
+
+  // 💫 Reproducir automáticamente al presionar "Entrar"
+  document.getElementById('enter-btn').addEventListener('click', () => {
+    setTimeout(() => {
+      playMusic(); // inicia música y pone botón verde con nota tachada
+    }, 600);
+  });
+
+  // 👆 Control manual del botón
+  musicBtn.addEventListener('click', () => {
+    if (isPlaying) pauseMusic();
+    else playMusic();
+    musicBtn.style.transform = "scale(0.9)";
+    setTimeout(() => (musicBtn.style.transform = "scale(1)"), 150);
+  });
+</script>
+
+  <script>
+    if('scrollRestoration' in history){history.scrollRestoration='manual';}
+    window.addEventListener('load',()=>window.scrollTo({top:0,left:0,behavior:'smooth'}));
+  </script>
+  
+  
+<!-- ✨ BIENVENIDA INICIAL personalizada -->
+<script>
+  const overlay = document.getElementById('welcome-overlay');
+  const enterBtn = document.getElementById('enter-btn');
+  const title = document.getElementById('welcome-title');
+  const text = document.getElementById('welcome-text');
+
+  // Detectar nombre y número de personas desde la URL
+  const params = new URLSearchParams(window.location.search);
+  const invitado = params.get('invitado');
+  const personas = params.get('personas'); // 👈 nuevo parámetro
+
+  if (invitado) {
+    const nombreLimpio = invitado.trim();
+    const nombreMinus = nombreLimpio.toLowerCase();
+
+    // lista de nombres femeninos comunes 🇲🇽
+    const nombresFemeninos = [
+      "ana","sofia","maria","laura","elizabeth","elisabeth","eli","andrea","paula",
+      "carmen","isabel","fernanda","valeria","mariana","natalia","daniela",
+      "alejandra","guadalupe","luz","monica","patricia","gabriela","marisol",
+      "beatriz","leticia","veronica","adriana","carla","silvia","Jenny","selene","Leydi"
+    ];
+
+    const esPlural = /y|,|familia|amigos/i.test(nombreLimpio);
+    const esFemenino = nombresFemeninos.some(n => nombreMinus.includes(n));
+
+    let tituloSaludo = "";
+    let textoSaludo = "";
+
+    if (esPlural) {
+      tituloSaludo = `Welcome, ${nombreLimpio}!`;
+      textoSaludo = `We are so happy that you're here celebrating with us💍`;
+    } 
+    else if (esFemenino) {
+      tituloSaludo = `Welcome, ${nombreLimpio}!`;
+      textoSaludo = `We are so happy that you're here in our special day 💛`;
+    } 
+    else {
+      tituloSaludo = `¡Hola, ${nombreLimpio}!`;
+      textoSaludo = `What a cherish moment to have you with us 💍`;
+    }
+
+    // Agregar número de personas si está definido
+    if (personas) {
+      textoSaludo += `<br><br>This invitation is valid for <strong>${personas} ${personas === "1" ? "guest" : "guests"}</strong> 💌`;
+    }
+
+    title.textContent = tituloSaludo;
+    text.innerHTML = textoSaludo;
+  }
+
+  // Animación al presionar Entrar
+  enterBtn.addEventListener('click', () => {
+    overlay.style.opacity = '0';
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 1000);
+
+    // 🔊 inicia la música después de medio segundo
+    setTimeout(() => {
+      const audio = document.getElementById('bg-music');
+      audio.play().catch(() => {});
+    }, 600);
+  });
+</script>
+  
+<!-- =======================
+     VALIDACIÓN DE INVITACIÓN (al final)
+======================= -->
+
+<script>
+  const mensajeValidacion = document.getElementById("mensaje-validacion");
+  const seccionValidacion = document.getElementById("validacion");
+
+  if (invitado && personas) {
+    let textoValidacion = "";
+
+    if (/y|,|familia|amigos/i.test(invitado)) {
+      textoValidacion = `This invitation for<strong>${invitado}</strong> is valid for <strong>${personas} ${personas === "1" ? "guest" : "guests"}</strong>.`;
+    } else {
+      textoValidacion = `Valid invitation for <strong>${personas} ${personas === "1" ? "guest" : "guests"}</strong>.`;
+    }
+
+    mensajeValidacion.innerHTML = textoValidacion + " 💌";
+    seccionValidacion.style.display = "block";
+
+    // Efecto suave al hacer scroll
+    window.addEventListener('scroll', () => {
+      const rect = seccionValidacion.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        seccionValidacion.classList.add('visible');
+      }
+    });
+
+    // Dispara animación si ya está visible
+    window.dispatchEvent(new Event('scroll'));
+  }
+</script>
+  <!-- <script>
+  /* === BOTÓN DE WHATSAPP PERSONALIZADO === */
+
+  const enlaceWhatsapp = document.getElementById("whatsapp-link");
+  const numeroWhatsapp = "529991264032"; // tu número de confirmación 💛
+
+  const params = new URLSearchParams(window.location.search);
+
+  const invitadoWA = params.get("invitado");   // nombre desde URL
+  const personasWA = params.get("personas");   // número de personas
+
+  if (invitadoWA) {
+
+    // 🔎 limpia espacios y acentos (quita %20 o +)
+    const nombreLimpio = decodeURIComponent(invitadoWA.replace(/\+/g, " "));
+
+    let mensaje = "";
+
+    if (personasWA) {
+      const plural = personasWA === "1" ? "persona" : "personas";
+
+      mensaje =
+        `¡Hola! Soy ${nombreLimpio} y confirmo nuestra asistencia ` +
+        `(${personasWA} ${plural}) a la boda de Elizabeth y Wilbert 💛`;
+      
+    } else {
+      mensaje =
+        `¡Hola! Soy ${nombreLimpio} y confirmo mi asistencia ` +
+        `a la boda de Elizabeth y Wilbert 💍`;
+    }
+
+    const mensajeCodificado = encodeURIComponent(mensaje);
+
+    // armar enlace final
+    enlaceWhatsapp.href = `https://wa.me/${numeroWhatsapp}?text=${mensajeCodificado}`;
+
+    // mostrar botón
+    enlaceWhatsapp.style.display = "inline-block";
+  }
+</script> -->
+<script>
+  // === PERSONALIZAR MENSAJE DEL BOTÓN DE WHATSAPP ===
+  const whatsappLink = document.getElementById("whatsapp-link");
+  if (whatsappLink) {
+    const paramsWA = new URLSearchParams(window.location.search);
+    const invitadoWA = paramsWA.get("invitado");
+    const personasWA = paramsWA.get("personas");
+
+    // mensaje por defecto (si no hay invitado en el link)
+    let mensaje = "Hello! I confirm my attendance at the wedding of Elizabeth and Wilbert 💍";
+
+   if (invitadoWA) {
+  const nombreLimpio = invitadoWA.trim();
+
+  if (personasWA) {
+    if (personasWA === "1") {
+      // Si es una sola persona
+      mensaje = `Hello! This is ${invitadoWA}, and I am happy to confirm my attendance at the wedding of Elizabeth and Wilbert 💛`;
+    } else {
+      // Dos o más personas
+      const plural = personasWA === "1" ? "guest" : "guests";
+      mensaje = `Hello! We are ${invitadoWA}, and we are delighted to confirm our attendance (${personasWA} guests) at the wedding of Elizabeth and Wilbert 💛`;
+    }
+  } else {
+    // Si no se especifica número de personas
+    mensaje = `Hello! This is ${invitadoWA}, and I confirm my attendance at the wedding of Elizabeth and Wilbert 💍`;
+  }
+}
+
+
+    const numeroWhatsapp = "529991264032";
+    const mensajeCodificado = encodeURIComponent(mensaje);
+
+    whatsappLink.href = `https://wa.me/${numeroWhatsapp}?text=${mensajeCodificado}`;
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
